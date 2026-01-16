@@ -1,14 +1,4 @@
-Perfect — based on **your exact folder structure** and your requirement:
 
-* ✅ **Frontend → `npm run dev`**
-* ✅ **Backend → `npm start`**
-
-Here is a **customized, accurate `README.md`** for your **Doctor Appointment MERN project**.
-You can **replace your existing README.md** with this.
-
----
-
-```markdown
 # 🩺 Doctor Appointment Management System (MERN Stack)
 
 A full-stack **Doctor Appointment Booking & Management System** built using the **MERN Stack** (MongoDB, Express.js, React.js, Node.js).
