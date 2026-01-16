@@ -1,0 +1,181 @@
+/* frontend/src/adminPanel.css
+   Prescripto — Admin Console styles
+   Hides old left list (if present) and makes main area full-width + pretty
+*/
+
+:root{
+  --bg: #0b0c10;
+  --panel: #0f1318;
+  --muted: #9aa0b4;
+  --text: #e9f0fb;
+  --accent: #0ea5e9;
+  --accent-2: #7ce0ff;
+  --soft: rgba(255,255,255,0.03);
+  --card-radius: 12px;
+  --container-w: 1180px;
+}
+
+/* Page background / wrapper */
+.admin-wrapper {
+  max-width: var(--container-w);
+  margin: 28px auto;
+  padding: 28px;
+  color: var(--text);
+}
+
+/* ===== HIDE legacy left list/sidebar =====
+   If your left list uses tags like <aside>, .sidebar, .admin-sidebar or .left-nav,
+   these rules will hide it. Add more selectors if needed.
+*/
+.admin-sidebar,
+.left-nav,
+aside,
+.admin-left,
+.sidebar,
+#sidebar {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Expand main content to full width (override previous layout grid) */
+.admin-main,
+.admin-content,
+.admin-console,
+#admin-content {
+  width: 100% !important;
+  margin-left: 0 !important;
+  padding: 26px !important;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, rgba(255,255,255,0.006), rgba(0,0,0,0.02));
+  border-radius: 14px;
+  border: 1px solid var(--soft);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.55);
+}
+
+/* Heading */
+.admin-main h1,
+.admin-main h2 {
+  color: var(--text);
+  margin: 0 0 12px;
+  font-weight: 800;
+}
+.admin-main .sub {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+/* Top nav / tabs inside admin console */
+.admin-nav-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.admin-nav-tabs .tab {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-weight: 700;
+  cursor: pointer;
+}
+.admin-nav-tabs .tab.active,
+.admin-nav-tabs .tab:hover {
+  background: linear-gradient(90deg, rgba(14,165,233,0.08), rgba(110,231,183,0.02));
+  color: #fff;
+  box-shadow: 0 12px 40px rgba(14,165,233,0.06);
+  border-color: rgba(14,165,233,0.08);
+}
+
+/* Overview stat row */
+.admin-stats {
+  display: flex;
+  gap: 16px;
+  margin: 18px 0 26px;
+  flex-wrap: wrap;
+}
+.admin-stat {
+  flex: 1 1 210px;
+  min-width: 180px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+.admin-stat h3 { margin: 0 0 6px; color: var(--muted); font-weight:700; font-size:13px; }
+.admin-stat .big { font-size:20px; font-weight:800; color:var(--text); }
+
+/* Cards for lists (users, doctors, appointments) */
+.admin-list {
+  margin-top: 12px;
+}
+.admin-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+  border: 1px solid rgba(255,255,255,0.03);
+  margin-bottom: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+.admin-card .left {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  min-width:0;
+}
+.admin-card .avatar {
+  width:48px;height:48px;border-radius:10px;
+  background: linear-gradient(180deg,#071426,#0f2a3b);
+  display:flex;align-items:center;justify-content:center;color:#bfefff;font-weight:800;
+}
+.admin-card .meta { min-width:0; }
+.admin-card .meta .title { font-weight:700; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.admin-card .meta .sub { color:var(--muted); font-size:13px; }
+
+/* action buttons */
+.admin-actions { display:flex; gap:10px; align-items:center; }
+.btn {
+  padding:8px 12px;
+  border-radius:10px;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+}
+.btn-danger { background: linear-gradient(90deg,#ff6b7a,#ff9aa8); color:#21080a; }
+.btn-primary { background: linear-gradient(90deg,var(--accent),var(--accent-2)); color:#022029; }
+.btn-ghost { background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--muted); }
+
+/* tables (if used) */
+.admin-table { width:100%; border-collapse:collapse; margin-top:12px; }
+.admin-table th, .admin-table td {
+  padding:12px 10px;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  color:var(--muted);
+}
+.admin-table th { color: var(--text); text-align:left; }
+
+/* empty / placeholder area */
+.admin-empty {
+  padding: 36px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.006), rgba(0,0,0,0.01));
+  color: var(--muted);
+}
+
+/* responsive */
+@media (max-width: 980px) {
+  .admin-main, .admin-content { padding: 18px !important; margin: 12px !important; }
+  .admin-stats { flex-direction: column; }
+  .admin-stat { width: 100%; }
+  .admin-nav-tabs { justify-content: flex-start; }
+}
+

@@ -1,0 +1,257 @@
+/* ======================================================
+   Doctor Panel — Clean Modern Dark + Neon Accent Theme
+   File: frontend/src/doctorPanel.css
+   ====================================================== */
+
+:root{
+  --bg: #0b0c10;
+  --panel: #0f1318;
+  --muted: #9aa0b4;
+  --text: #e9f0fb;
+  --accent: #0ea5e9;
+  --accent-2: #7ce0ff;
+  --card: rgba(255,255,255,0.02);
+  --soft: rgba(255,255,255,0.03);
+  --radius: 12px;
+}
+
+/* Wrapper */
+.doctor-panel-wrapper {
+  background: linear-gradient(180deg, rgba(255,255,255,0.006), rgba(255,255,255,0.002));
+  border-radius: 14px;
+  border: 1px solid var(--soft);
+  padding: 36px;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.55);
+  margin: 28px 20px;
+}
+
+/* Headings */
+.doctor-panel-wrapper h1 {
+  margin: 0 0 10px;
+  font-size: 34px;
+  color: var(--text);
+}
+.doctor-panel-wrapper h2 {
+  margin: 20px 0 14px;
+  font-size: 22px;
+  color: var(--text);
+}
+
+/* Appointments list */
+.doctor-appointments-list {
+  margin-top: 12px;
+}
+.doctor-appt-card {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+  border: 1px solid var(--soft);
+  margin-bottom: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.doctor-appt-card:hover { transform: translateY(-6px); box-shadow: 0 22px 60px rgba(0,0,0,0.6); }
+
+/* left info */
+.appt-left {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  min-width:0;
+}
+.appt-left .patient-name {
+  font-weight:700;
+  color:var(--text);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.appt-left .appt-datetime {
+  color:var(--muted);
+  font-size:13px;
+  margin-top:4px;
+}
+
+/* right area: status + actions */
+.appt-right {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:200px;
+  justify-content:flex-end;
+}
+
+/* status badges */
+.appt-status {
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:13px;
+  border:1px solid rgba(255,255,255,0.03);
+}
+.appt-status.booked { background: rgba(14,165,233,0.08); color: var(--accent); border-color: rgba(14,165,233,0.10); }
+.appt-status.cancelled { background: rgba(255,77,109,0.06); color: #ff7a93; border-color: rgba(255,77,109,0.08); }
+.appt-status.completed { background: rgba(40,199,111,0.08); color: #22c57a; border-color: rgba(40,199,111,0.08); }
+
+/* action buttons */
+.btn {
+  padding:10px 14px;
+  border-radius:10px;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.mark-btn {
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#022029;
+  box-shadow: 0 10px 30px rgba(14,165,233,0.12);
+}
+.mark-btn:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(14,165,233,0.14); }
+
+.cancel-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #ffdede;
+}
+.cancel-btn:hover {
+  border-color:#ff6b7a;
+  transform: translateY(-3px);
+}
+
+/* Manage slots area */
+.manage-slots {
+  margin-top: 30px;
+  padding: 18px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.005), rgba(255,255,255,0.002));
+  border: 1px solid var(--soft);
+}
+.manage-slots .row {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.manage-slots input[type="date"],
+.manage-slots input[type="time"],
+.manage-slots input[type="text"] {
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 12px 10px;
+  border-radius: 10px;
+  outline:none;
+  font-size:14px;
+}
+.manage-slots .add-slot-btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#022029;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* current slots list */
+.current-slots {
+  margin-top: 18px;
+  display:grid;
+  gap:10px;
+}
+.slot-item {
+  padding:12px 14px;
+  border-radius:10px;
+  background: rgba(255,255,255,0.01);
+  border: 1px solid var(--soft);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* small text helpers */
+.muted { color: var(--muted); font-size:13px; }
+
+/* responsive */
+@media (max-width:900px) {
+  .doctor-panel-wrapper { padding: 20px; margin: 14px; }
+  .doctor-appt-card { flex-direction: column; align-items:flex-start; gap:12px; }
+  .appt-right { width:100%; justify-content:space-between; }
+  .manage-slots .row { flex-direction: column; align-items:stretch; }
+  .manage-slots .add-slot-btn { width:100%; }
+}
+
+/* ---------- FORCE Doctor Panel Styles (high-specificity + !important) ---------- */
+
+/* wrapper */
+html body #root .doctor-panel-wrapper,
+html body .doctor-panel-wrapper,
+.doctor-panel-wrapper {
+  padding: 40px 28px !important;
+  margin: 28px 20px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,0.006), rgba(255,255,255,0.002)) !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(255,255,255,0.03) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6) !important;
+}
+
+/* heading */
+html body #root .doctor-panel-wrapper h1,
+.doctor-panel-wrapper h1 {
+  font-size: 34px !important;
+  color: #e6eef8 !important;
+  margin: 0 0 8px !important;
+}
+
+/* appointment cards forced */
+html body #root .doctor-panel-wrapper .doctor-appt-card,
+.doctor-panel-wrapper .doctor-appt-card,
+.doctor-panel-wrapper .appt-card {
+  display:flex !important;
+  justify-content:space-between !important;
+  align-items:center !important;
+  gap:16px !important;
+  padding: 16px 20px !important;
+  border-radius: 12px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02)) !important;
+  border: 1px solid rgba(255,255,255,0.03) !important;
+  margin-bottom: 14px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+}
+
+/* left / right */
+.doctor-panel-wrapper .appt-left { min-width:0 !important; }
+.doctor-panel-wrapper .appt-right { display:flex !important; gap:12px !important; align-items:center !important; justify-content:flex-end !important; }
+
+/* status badge */
+.doctor-panel-wrapper .appt-status { padding:8px 12px !important; border-radius:999px !important; font-weight:700 !important; }
+
+/* manage slots */
+html body #root .doctor-panel-wrapper .manage-slots,
+.doctor-panel-wrapper .manage-slots {
+  margin-top: 26px !important;
+  padding: 16px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255,255,255,0.03) !important;
+  background: rgba(255,255,255,0.01) !important;
+}
+
+/* mobile forced */
+@media (max-width:900px){
+  html body #root .doctor-panel-wrapper,
+  .doctor-panel-wrapper {
+    padding: 20px 14px !important;
+    margin: 16px !important;
+  }
+  html body #root .doctor-panel-wrapper .doctor-appt-card,
+  .doctor-panel-wrapper .doctor-appt-card {
+    flex-direction: column !important;
+    align-items:flex-start !important;
+    gap:10px !important;
+  }
+}

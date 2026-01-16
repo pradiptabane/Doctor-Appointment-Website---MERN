@@ -1,0 +1,192 @@
+/* ===========================================================
+   Prescripto — Login Card (Dark + Neon Accent)
+   File: frontend/src/login.css
+   =========================================================== */
+
+:root {
+  --bg: #0b0c10;
+  --panel: #0f1318;
+  --muted: #9aa0b4;
+  --text: #e9f0fb;
+  --accent: #0ea5e9;
+  --accent-2: #7ce0ff;
+  --soft: rgba(255,255,255,0.03);
+  --card-radius: 14px;
+  --glass: rgba(255,255,255,0.02);
+}
+
+/* page background (optional safeguard) */
+body { background: var(--bg); color: var(--text); }
+
+/* center wrapper used on the Login page */
+.login-page-wrap {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* the card */
+.login-card {
+  width: 420px;
+  max-width: 94%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.004));
+  border-radius: var(--card-radius);
+  padding: 28px;
+  box-shadow: 0 18px 60px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid var(--glass);
+  color: var(--text);
+}
+
+/* header */
+.login-card h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+.login-card p.lead {
+  margin: 0 0 18px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* fancy select / quick demo dropdown */
+.login-card .select {
+  width: 100%;
+  background: rgba(255,255,255,0.01);
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: var(--muted);
+  margin-bottom: 14px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* inputs */
+.login-card input,
+.login-card textarea,
+.login-card select {
+  width: 100%;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 14px 12px;
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 12px;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+.login-card input::placeholder { color: rgba(255,255,255,0.32); }
+
+/* input focus */
+.login-card input:focus,
+.login-card select:focus,
+.login-card textarea:focus {
+  border-color: rgba(14,165,233,0.22);
+  box-shadow: 0 8px 30px rgba(14,165,233,0.06);
+  transform: translateY(-2px);
+}
+
+/* primary button */
+.login-card .btn-primary {
+  display:inline-block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #022029;
+  border: none;
+  cursor: pointer;
+  margin-top: 6px;
+  box-shadow: 0 12px 40px rgba(14,165,233,0.12);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.login-card .btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 60px rgba(14,165,233,0.16);
+}
+
+/* secondary / ghost button */
+.login-card .btn-ghost {
+  display:inline-block;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.03);
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+/* demo accounts list */
+.login-card .demo-list {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.login-card .demo-list b { color: var(--text); }
+
+/* small helpers */
+.login-row { display:flex; gap:10px; align-items:center; }
+.login-row .small { font-size:13px; color:var(--muted); }
+
+/* footer / links under card */
+.login-card .card-foot {
+  margin-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.02);
+  padding-top: 12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.login-card .card-foot a { color: var(--muted); font-size: 14px; }
+
+/* responsive adjustments */
+@media (max-width: 520px) {
+  .login-card { padding: 18px; }
+  .login-card h2 { font-size: 20px; }
+  .login-card input { padding: 12px; }
+}
+
+
+/* nicer colored select + custom arrow */
+.login-card .select {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.004));
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.03);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255,0.00), rgba(255,255,255,0.00)),
+    url("data:image/svg+xml;charset=UTF-8,%3Csvg width='14' height='10' viewBox='0 0 14 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%237ce0ff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px 10px;
+}
+
+/* hide default caret in IE */
+.login-card .select::-ms-expand { display: none; }
+
+/* Option styling (most browsers ignore advanced option styling; keep simple) */
+.login-card .select option {
+  color: #e6eef8;
+  background: var(--panel);
+}
+
+/* Focus improvements */
+.login-card .select:focus {
+  outline: none;
+  border-color: rgba(14,165,233,0.22);
+  box-shadow: 0 8px 30px rgba(14,165,233,0.06);
+}
